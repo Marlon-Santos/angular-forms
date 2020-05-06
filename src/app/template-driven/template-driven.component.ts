@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+interface Info {
+  nome: string;
+  idade: number;
+  email: string;
+  confirmarEmail: string;
+}
 
 @Component({
   selector: 'app-template-driven',
@@ -9,7 +17,18 @@ export class TemplateDrivenComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  informacoes: Info = {
+    nome: null,
+    idade: null,
+    email: null,
+    confirmarEmail: null
   }
 
+  ngOnInit(): void {
+    console.log(this.informacoes);
+  }
+
+  onSubmit(form: NgForm): void{
+    console.log(form);
+  }
 }
