@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 interface Info {
   nome: string;
@@ -15,7 +16,9 @@ interface Info {
 })
 export class TemplateDrivenComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild("myForm") myForm: NgForm;
+
+  constructor(private http: HttpClient) { }
 
   informacoes: Info = {
     nome: null,
@@ -26,6 +29,13 @@ export class TemplateDrivenComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.informacoes);
+  }
+
+  getCep(cep){
+    const url = `http://viacep.com.br/ws/${cep}/json`;
+    this.http.get(url).subscribe(endereco =>{
+    this.myForm.form.patchValue({endereco});
+    });
   }
 
   onSubmit(form: NgForm): void{

@@ -19,21 +19,17 @@
     </fieldset>
     <fieldset ngModelGroup="endereco">
         <label>
+        cep:
+        <input type="text" name="cep" ngModel #cep (blur)="getCep(cep.value)">
+      </label>
+        <label>
+    cidade:
+    <input type="text" name="localidade" ngModel>
+  </label>
+        <label>
     estado:
     <input type="text" name="uf" ngModel>
     </label>
-        <label>
-    cidade:
-    <input type="text" name="cidade" ngModel>
-  </label>
-        <label>
-    cep:
-    <input type="text" name="cep" ngModel>
-  </label>
-        <label>
-    rua:
-    <input type="text" name="rua" ngModel>
-  </label>
     </fieldset>
     <button type="submit">ENVIAR</button>
 </form>
