@@ -1,0 +1,40 @@
+<form formGroup="myForm">
+  <fieldset formGroupName="informacoes">
+    <label>
+      nome:
+      <input type="text" formControlName="nome" />
+    </label>
+    <label>
+      Idade:
+      <input type="number" formControlName="idade" />
+    </label>
+    <label>
+      Email:
+      <input type="email" formControlName="email" />
+    </label>
+    <label>
+      Confirmar Email:
+      <input type="email" formControlName="confirmarEmail" />
+    </label>
+  </fieldset>
+  <fieldset formGroupName="endereco">
+    <label>
+      cep:
+      <input
+        type="text"
+        formControlName="cep"
+        #cep
+        (blur)="getCep(cep.value)"
+      />
+    </label>
+    <label>
+      cidade:
+      <input type="text" formControlName="localidade" />
+    </label>
+    <label>
+      estado:
+      <input type="text" formControlName="uf" />
+    </label>
+  </fieldset>
+  <button type="submit">ENVIAR</button>
+</form>

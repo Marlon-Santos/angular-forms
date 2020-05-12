@@ -1,35 +1,46 @@
 <form #myForm="ngForm" (submit)="onSubmit(myForm)">
-    <fieldset ngModelGroup="informacoes">
-        <label>
+  <fieldset ngModelGroup="informacoes" #info="ngModelGroup">
+    <label>
       nome:
-      <input type="text" name="nome" [(ngModel)]="informacoes.nome">
+      <input type="text" required name="nome" [(ngModel)]="informacoes.nome" />
     </label>
-        <label>
+    <label>
       Idade:
-      <input type="number" name="idade" [(ngModel)]="informacoes.idade">
+      <input type="number" name="idade" [(ngModel)]="informacoes.idade" />
     </label>
-        <label>
+    <label>
       Email:
-      <input type="email" name="email" [(ngModel)]="informacoes.email">
+      <input type="email" name="email" [(ngModel)]="informacoes.email" />
     </label>
-        <label>
+    <label>
       Confirmar Email:
-      <input type="email" name="confirmarEmail" [(ngModel)]="informacoes.confirmarEmail">
+      <input
+        type="email"
+        name="confirmarEmail"
+        [(ngModel)]="informacoes.confirmarEmail"
+      />
     </label>
-    </fieldset>
-    <fieldset ngModelGroup="endereco">
-        <label>
-        cep:
-        <input type="text" name="cep" ngModel #cep (blur)="getCep(cep.value)">
-      </label>
-        <label>
-    cidade:
-    <input type="text" name="localidade" ngModel>
-  </label>
-        <label>
-    estado:
-    <input type="text" name="uf" ngModel>
+  </fieldset>
+  <fieldset ngModelGroup="endereco">
+    <label>
+      cep:
+      <input
+        type="text"
+        required
+        name="cep"
+        ngModel
+        #cep
+        (blur)="getCep(cep.value)"
+      />
     </label>
-    </fieldset>
-    <button type="submit">ENVIAR</button>
+    <label>
+      cidade:
+      <input type="text" name="localidade" ngModel />
+    </label>
+    <label>
+      estado:
+      <input type="text" name="uf" ngModel />
+    </label>
+  </fieldset>
+  <button type="submit">ENVIAR</button>
 </form>
